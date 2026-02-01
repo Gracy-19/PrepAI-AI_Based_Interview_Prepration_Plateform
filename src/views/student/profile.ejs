@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrepAi | Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #080B15;
+      color: #fff;
+    }
+    
+    .premium-gradient {
+      background: linear-gradient(135deg, #8A2BE2 0%, #4169E1 100%);
+    }
+    
+    .premium-text-gradient {
+      background: linear-gradient(135deg, #8A2BE2 0%, #4169E1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .pulse-glow {
+      animation: pulse-glow 3s infinite;
+    }
+    
+    @keyframes pulse-glow {
+      0% { box-shadow: 0 0 5px 0 rgba(138, 43, 226, 0.5); }
+      50% { box-shadow: 0 0 20px 5px rgba(138, 43, 226, 0.7); }
+      100% { box-shadow: 0 0 5px 0 rgba(138, 43, 226, 0.5); }
+    }
+    
+    .hovering-card {
+      transition: all 0.3s ease;
+      transform-style: preserve-3d;
+    }
+    
+    .hovering-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .success-message {
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  
+  <!-- Navigation -->
+  <nav class="glass-card mb-8 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-8">
+          <a href="/dashboard" class="text-2xl font-bold premium-text-gradient">PrepAi</a>
+          <div class="hidden md:flex space-x-6">
+            <a href="/dashboard" class="text-white/60 hover:text-white transition-colors">
+              <i class="fas fa-th-large mr-2"></i>Dashboard
+            </a>
+            <a href="/profile" class="text-white font-medium">
+              <i class="fas fa-user mr-2"></i>Profile
+            </a>
+          </div>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+          <div class="hidden md:block text-right">
+            <p class="text-sm text-white/60">Logged in as</p>
+            <p class="font-semibold"><%= name %></p>
+          </div>
+          <a href="/end-session" class="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 rounded-lg transition-colors border border-red-500/30">
+            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Success Message -->
+    <% if (typeof success !== 'undefined' && success) { %>
+      <div class="glass-card rounded-xl p-4 mb-6 border border-green-500/30 bg-green-500/10 success-message">
+        <div class="flex items-center">
+          <i class="fas fa-check-circle text-green-400 text-xl mr-3"></i>
+          <span class="text-green-300">Profile updated successfully!</span>
+        </div>
+      </div>
+    <% } %>
+
+    <!-- Profile Header -->
+    <div class="glass-card rounded-2xl p-8 mb-6 hovering-card">
+      <div class="flex items-center space-x-6">
+        <div class="w-24 h-24 premium-gradient rounded-full flex items-center justify-center text-4xl font-bold pulse-glow">
+          <%= name.charAt(0).toUpperCase() %>
+        </div>
+        <div class="flex-1">
+          <h1 class="text-3xl font-bold mb-2"><%= name %></h1>
+          <div class="flex items-center space-x-4 text-white/60">
+            <div class="flex items-center">
+              <i class="fas fa-id-card mr-2"></i>
+              <span class="text-sm">Session ID: <span class="text-white font-mono"><%= uniqueId %></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Information -->
+    <div class="glass-card rounded-2xl p-8 hovering-card">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold">Profile Information</h2>
+        <button id="editBtn" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors">
+          <i class="fas fa-edit mr-2"></i>Edit Profile
+        </button>
+      </div>
+
+      <!-- View Mode -->
+      <div id="viewMode">
+        <div class="space-y-4">
+          <div class="border-b border-white/10 pb-4">
+            <label class="text-sm text-white/60 block mb-1">Full Name</label>
+            <p class="text-lg"><%= name %></p>
+          </div>
+          <div class="border-b border-white/10 pb-4">
+            <label class="text-sm text-white/60 block mb-1">Session ID</label>
+            <p class="text-lg font-mono"><%= uniqueId %></p>
+            <p class="text-xs text-white/40 mt-1">Use this ID to continue your session from another device</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Mode -->
+      <form id="editMode" action="/update-profile" method="POST" style="display: none;">
+        <div class="space-y-6">
+          <div>
+            <label class="text-sm text-white/70 block mb-2">Full Name</label>
+            <input 
+              type="text" 
+              name="name" 
+              value="<%= name %>" 
+              required
+              class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-purple-500 focus:outline-none transition-colors"
+              placeholder="Enter your name"
+            />
+          </div>
+
+          <div class="glass-card rounded-xl p-4 bg-blue-500/10 border border-blue-500/20">
+            <div class="flex items-start">
+              <i class="fas fa-info-circle text-blue-400 mt-1 mr-3"></i>
+              <div class="text-sm text-blue-300">
+                <p class="font-semibold mb-1">Session ID cannot be changed</p>
+                <p class="text-blue-300/70">Your Session ID (<span class="font-mono"><%= uniqueId %></span>) is permanent and cannot be modified.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex space-x-4 pt-4">
+            <button 
+              type="submit" 
+              class="flex-1 premium-gradient py-3 rounded-xl font-semibold hover:scale-105 transition-transform pulse-glow"
+            >
+              <i class="fas fa-save mr-2"></i>Save Changes
+            </button>
+            <button 
+              type="button" 
+              id="cancelBtn"
+              class="flex-1 bg-white/10 hover:bg-white/20 py-3 rounded-xl font-semibold transition-colors"
+            >
+              <i class="fas fa-times mr-2"></i>Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Session Information -->
+    <div class="glass-card rounded-2xl p-8 mt-6 hovering-card">
+      <h2 class="text-2xl font-bold mb-6">Session Details</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="glass-card rounded-xl p-4 bg-white/5">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-white/60">Session ID</span>
+            <i class="fas fa-fingerprint text-purple-400"></i>
+          </div>
+          <p class="font-mono text-lg font-semibold"><%= uniqueId %></p>
+        </div>
+        <div class="glass-card rounded-xl p-4 bg-white/5">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-white/60">Account Name</span>
+            <i class="fas fa-user text-blue-400"></i>
+          </div>
+          <p class="text-lg font-semibold"><%= name %></p>
+        </div>
+      </div>
+      
+      <div class="mt-6 glass-card rounded-xl p-4 bg-yellow-500/10 border border-yellow-500/20">
+        <div class="flex items-start">
+          <i class="fas fa-exclamation-triangle text-yellow-400 mt-1 mr-3"></i>
+          <div class="text-sm text-yellow-300">
+            <p class="font-semibold mb-1">Important: Save Your Session ID</p>
+            <p class="text-yellow-300/70">Keep your Session ID (<span class="font-mono"><%= uniqueId %></span>) safe. You'll need it to access your interview spaces from any device.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="mt-6 grid md:grid-cols-2 gap-4">
+      <a href="/dashboard" class="glass-card rounded-xl p-6 hovering-card hover:bg-white/10 transition-colors">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-semibold mb-1">Go to Dashboard</h3>
+            <p class="text-sm text-white/60">View your interview spaces</p>
+          </div>
+          <i class="fas fa-arrow-right text-2xl text-purple-400"></i>
+        </div>
+      </a>
+      <a href="/end-session" class="glass-card rounded-xl p-6 hovering-card hover:bg-red-500/10 transition-colors border-red-500/20">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-semibold mb-1 text-red-400">End Session</h3>
+            <p class="text-sm text-white/60">Logout from your account</p>
+          </div>
+          <i class="fas fa-sign-out-alt text-2xl text-red-400"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // Edit button click
+      $('#editBtn').click(function() {
+        $('#viewMode').hide();
+        $('#editMode').show();
+        $(this).hide();
+      });
+
+      // Cancel button click
+      $('#cancelBtn').click(function() {
+        $('#editMode').hide();
+        $('#viewMode').show();
+        $('#editBtn').show();
+      });
+
+      // Check for success parameter in URL
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('success') === 'true') {
+        // Remove success param after showing message
+        setTimeout(() => {
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }, 3000);
+      }
+    });
+  </script>
+</body>
+</html>
