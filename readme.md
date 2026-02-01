@@ -10,6 +10,8 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 ![AI](https://img.shields.io/badge/AI-Google_Gemini-blueviolet?style=for-the-badge&logo=google)
 
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Website-success?style=for-the-badge)](https://prepai-ai-based-interview-prepration-hacq.onrender.com)
+
 [Features](#-key-features) • [Demo](#-demo) • [Installation](#-installation) • [Tech Stack](#-tech-stack) • [Contributing](#-contributing)
 
 ---
@@ -186,6 +188,8 @@ Open your browser and navigate to:
 http://localhost:3000
 ```
 
+**Or use the live demo:** [https://prepai-ai-based-interview-prepration-hacq.onrender.com](https://prepai-ai-based-interview-prepration-hacq.onrender.com)
+
 ---
 
 ## 📁 Project Structure
@@ -227,6 +231,12 @@ prepai/
 ---
 
 ## 🎬 Demo
+
+### 🌐 Live Application
+
+**Try PrepAi Now:** [https://prepai-ai-based-interview-prepration-hacq.onrender.com](https://prepai-ai-based-interview-prepration-hacq.onrender.com)
+
+> 🚀 The application is deployed on Render and ready to use!
 
 ### 🖼️ Screenshots
 
