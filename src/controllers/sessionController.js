@@ -287,8 +287,20 @@ const sendCodeEmail = async (req, res) => {
     }
     
     // Check if email is configured
+    if (!transporter) {
+      console.error('❌ Email transporter not configured');
+      return res.status(503).json({ 
+        success: false, 
+        error: 'Email service not configured. Please contact administrator.' 
+      });
+    }
+    
     if (!process.env.GMAIL_USER || process.env.GMAIL_USER === 'your-email@gmail.com') {
-      return res.status(400).json({ success: false, error: 'Email service not configured' });
+      console.error('❌ Gmail user not set in environment variables');
+      return res.status(503).json({ 
+        success: false, 
+        error: 'Email credentials not configured properly.' 
+      });
     }
     
     // Send email
@@ -317,13 +329,23 @@ const sendCodeEmail = async (req, res) => {
         `
       };
       
+      console.log('📧 Attempting to send session code email to:', session.email);
       await transporter.sendMail(mailOptions);
-      console.log('✅ Session code email resent to:', session.email);
+      console.log('✅ Session code email resent successfully to:', session.email);
       
       return res.json({ success: true, message: 'Email sent successfully' });
     } catch (emailError) {
       console.error('❌ Error sending email:', emailError);
-      return res.status(500).json({ success: false, error: 'Failed to send email: ' + emailError.message });
+      console.error('Email error details:', {
+        code: emailError.code,
+        command: emailError.command,
+        response: emailError.response
+      });
+      return res.status(500).json({ 
+        success: false, 
+        error: 'Failed to send email. Please check server logs.',
+        details: emailError.message 
+      });
     }
   } catch (error) {
     console.error('Error in sendCodeEmail:', error);
