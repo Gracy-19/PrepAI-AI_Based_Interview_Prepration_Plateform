@@ -1,0 +1,36 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9333ea;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="arrowGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00c6ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <g transform="translate(150, 50) scale(0.8)">
+    <path d="M150,30 C80,30 30,80 30,150 C30,220 80,270 150,270 C220,270 270,220 270,150 C270,80 220,30 150,30 Z" fill="url(#brainGradient)" stroke="#2563eb" stroke-width="3" opacity="0.8" />
+    
+    <g stroke="#00ffff" stroke-width="2" fill="none" filter="url(#glow)">
+      <path d="M50,150 L80,150 L80,120 M100,100 L130,100 L130,70 M180,200 L210,200 L210,230 M240,120 L220,150 L250,150 M100,200 L80,220 L50,220" />
+      <circle cx="80" cy="120" r="3" fill="#00ffff" />
+      <circle cx="130" cy="70" r="3" fill="#00ffff" />
+      <circle cx="210" cy="230" r="3" fill="#00ffff" />
+      <circle cx="250" cy="150" r="3" fill="#00ffff" />
+      <circle cx="50" cy="220" r="3" fill="#00ffff" />
+      <path d="M150,50 L150,250 M50,150 L250,150" stroke-dasharray="4 4" />
+    </g>
+    
+    <path d="M150,150 L250,50 L250,80 L280,50 L250,20 L250,50 Z" fill="url(#arrowGradient)" stroke="#a855f7" stroke-width="3" filter="url(#glow)" />
+    
+    <path d="M150,25 C75,25 25,75 25,150 C25,225 75,275 150,275 C225,275 275,225 275,150 C275,75 225,25 150,25 Z" fill="none" stroke="#475569" stroke-width="5" opacity="0.7" />
+  </g>
+</svg>
