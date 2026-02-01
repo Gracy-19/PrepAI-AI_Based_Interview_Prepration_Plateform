@@ -456,11 +456,11 @@ of this software and associated documentation files...
 
 <div align="center">
 
-**Developed with ❤️ by the PrepAi Team**
+**Developed with ❤️ by the Ayush Sharma**
 
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/yourusername)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/yourprofile)
-[![Email](https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail)](mailto:ayushoffinfo17@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/AyuSharma176/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/ayusharma17/)
+[![Email](https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail)](mailto:ayusharma1706@gmail.com)
 
 </div>
 
@@ -488,9 +488,8 @@ of this software and associated documentation files...
 
 Need help? Have questions?
 
-- 📧 **Email**: ayushoffinfo17@gmail.com
-- 💬 **Issues**: [GitHub Issues](https://github.com/yourusername/prepai/issues)
-- 📖 **Docs**: [Documentation](https://github.com/yourusername/prepai/wiki)
+- 📧 **Email**: ayusharma1706@gmail.com
+- 💬 **Issues**: [GitHub Issues](https://github.com/AyuSharma176/PrepAI-AI_Based_Interview_Prepration_Plateform)
 
 ---
 
