@@ -9,7 +9,7 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "PrepAi - Smart AI Interview Coach for Technical & Behavioral Interview Preparation",
+  "description": "PrepAi - An Interview Preparation Platform",
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "bcryptjs": "^2.4.3",
