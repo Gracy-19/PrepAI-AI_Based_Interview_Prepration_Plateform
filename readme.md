@@ -1,7 +1,14 @@
-# 🤖 PrepAi - An Interview Preparation Platform 🚀
+# 🎯 PrepAi - Smart AI Interview Coach
 
 ## 🌟 Overview
-The **PrepAi Interview Preparation System** is a state-of-the-art platform designed to help students and professionals prepare for technical interviews in a structured, realistic, and efficient manner. The system leverages **Bootstrap, Node.js, Express.js, and MongoDB** to provide a seamless and interactive experience. Advanced **AI capabilities** are utilized to generate industry-relevant interview questions based on the student's resume, job description, and interview round type. The system also provides AI-generated interview feedback, evaluation reports, and improvement recommendations.
+**PrepAi** is an intelligent interview preparation platform that transforms the way you practice for job interviews. Built with modern web technologies and powered by Google's Gemini AI, PrepAi delivers personalized, realistic interview experiences tailored to your resume and target role. Whether you're a student or professional, PrepAi helps you master technical, behavioral, and HR interviews with confidence.
+
+### 🔥 Why PrepAi?
+- **AI-Driven Questions**: Get custom questions based on YOUR resume and job description
+- **Real Interview Simulation**: Practice with AI that mimics actual interviewers
+- **Instant Feedback**: Receive detailed performance analysis after each round
+- **Multi-Round Support**: Prepare for technical, HR, behavioral, and system design rounds
+- **Progress Tracking**: Monitor your improvement across multiple interview sessions
 
 ## ✨ Features
 - 🔐 **User Authentication**
