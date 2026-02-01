@@ -57,23 +57,30 @@ router.get('/space/resume/download/:id', protect, spaceController.downloadResume
 // Add this route for AJAX session creation
 router.post('/api/start-new', async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, email } = req.body;
     
     if (!name || name.trim() === '') {
       return res.status(400).json({ error: 'Name is required' });
     }
     
+    if (!email || email.trim() === '') {
+      return res.status(400).json({ error: 'Email is required' });
+    }
+    
     // Call the session controller function
-    const session = await sessionController.createSession(name);
+    const result = await sessionController.createSession(name, email);
     
     // Store in session cookie
-    req.session.uniqueId = session.uniqueId;
-    req.session.name = session.name;
+    req.session.uniqueId = result.uniqueId;
+    req.session.name = result.name;
+    req.session.email = result.email;
     
     // Return success with the session data
     return res.json({ 
       success: true, 
-      uniqueId: session.uniqueId,
+      uniqueId: result.uniqueId,
+      email: result.email,
+      emailSent: result.emailSent || false,
       redirectUrl: '/dashboard'
     });
   } catch (error) {
@@ -122,6 +129,7 @@ router.get('/end-session', sessionController.endSession);
 router.get('/dashboard', protect, spaceController.getSpaces);
 router.get('/profile', protect, sessionController.getProfile);
 router.post('/update-profile', protect, sessionController.updateProfile);
+router.post('/api/send-code-email', protect, sessionController.sendCodeEmail);
 
 // Space routes
 router.post('/spaces/create', [protect, upload.single('resume')], spaceController.createSpace);

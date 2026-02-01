@@ -1,7 +1,8 @@
+// Load environment variables FIRST before anything else
+require('dotenv').config();
 
 const connectDB = require('./src/config/dbConfig');
 const app = require('./src/app');
-require('dotenv').config();
 
 const cors = require('cors');
 

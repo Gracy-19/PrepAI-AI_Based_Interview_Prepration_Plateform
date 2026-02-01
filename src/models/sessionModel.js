@@ -11,6 +11,10 @@ const sessionSchema = new mongoose.Schema({
     type: String, 
     required: true 
   },
+  email: { 
+    type: String, 
+    required: true 
+  },
   spaces: [{ 
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'Space' 
