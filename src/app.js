@@ -68,6 +68,11 @@ app.use('/api/', apiLimiter);
 app.use('/spaces/create', createSpaceLimiter);
 app.use(['/generate-questions', '/finish-round'], interviewLimiter);
 
+// Health check route (for monitoring services like Render)
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // Routes
 app.use('/', routes);
 
