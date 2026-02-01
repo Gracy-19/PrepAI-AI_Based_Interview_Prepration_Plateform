@@ -11,7 +11,6 @@ const { JSDOM } = require('jsdom');
 
 // Global API key
 const API_KEY = process.env.GEMINI_API_KEY;
-// const API_KEY = 'AIzaSyAVaAP-vB0RDkFPzebIM4836n5S-hC77wY';
 
 // Function to extract text from PDF
 const extractTextFromPDF = async (filePath) => {
