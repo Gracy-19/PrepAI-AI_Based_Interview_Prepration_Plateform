@@ -188,7 +188,7 @@ Open your browser and navigate to:
 http://localhost:3000
 ```
 
-**Or use the live demo:** [https://prepai-ai-based-interview-prepration-hacq.onrender.com](https://prepai-ai-based-interview-prepration-hacq.onrender.com)
+**Or use the live demo:** [https://prepai.ayusharma.in/](https://prepai.ayusharma.in/)
 
 ---
 
@@ -234,7 +234,7 @@ prepai/
 
 ### 🌐 Live Application
 
-**Try PrepAi Now:** [https://prepai-ai-based-interview-prepration-hacq.onrender.com](https://prepai-ai-based-interview-prepration-hacq.onrender.com)
+**Try PrepAi Now:** [https://prepai.ayusharma.in/](https://prepai.ayusharma.in/)
 
 > 🚀 The application is deployed on Render and ready to use!
 
