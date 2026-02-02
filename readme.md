@@ -10,7 +10,7 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 ![AI](https://img.shields.io/badge/AI-Google_Gemini-blueviolet?style=for-the-badge&logo=google)
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Website-success?style=for-the-badge)](https://prepai-ai-based-interview-prepration-hacq.onrender.com)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Website-success?style=for-the-badge)](https://prepai.ayusharma.in/)
 
 [Features](#-key-features) • [Demo](#-demo) • [Installation](#-installation) • [Tech Stack](#-tech-stack) • [Contributing](#-contributing)
 
